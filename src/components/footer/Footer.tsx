@@ -7,8 +7,10 @@ const Footer = () => {
         navigate(caminho);
     };
   return (
+  <>
+  <hr />
     <footer className='w-screen px-6 pt-12 md:px-24'>
-    <div className='grid grid-cols-1 gap-8 mb-12 md:grid-cols-5'>
+    <div className='md:grid gap-8 mb-12 md:grid-cols-5'>
         <div className='flex flex-col gap-6 md:col-span-2 md:gap-14'>
             <h2 className='font-poppins font-bold text-xl md:text-2xl'>Funiro.</h2>
             <div className='w-full md:w-72'>
@@ -17,7 +19,7 @@ const Footer = () => {
                     FL 33134 USA
                 </p>
             </div>
-            <div className='flex justify-between w-full md:w-[184px] items-center md:-ml-4'>
+            <div className='flex justify-between md:w-[184px] items-center md:-ml-4'>
                 <a href="https://www.facebook.com" target="_blank">
                     <img src="/src/assets/icons/Icon-facebook.png" alt="Facebook" />
                 </a>
@@ -32,7 +34,8 @@ const Footer = () => {
                 </a>
             </div>
         </div>
-        <div className='flex flex-col gap-6 md:col-span-1 md:-ml-28'>
+        <div className="grid grid-cols-2">
+        <div className='flex flex-col gap-6 md:col-span-1 md:-ml-24'>
             <h6 className='text-[#9F9F9F] font-poppins font-medium text-base md:mb-10'>Links</h6>
             <ul className='font-poppins font-medium text-base flex flex-col gap-4 md:h-[230px] md:justify-between cursor-pointer'>
                 <li onClick={() => handleNavigation('/')}>Home</li>
@@ -41,16 +44,18 @@ const Footer = () => {
                 <li onClick={() => handleNavigation('/contact')}>Contact</li>
             </ul>
         </div>
-        <div className='flex flex-col gap-6 md:col-span-1 md:-ml-28'>
+        
+        <div className='flex flex-col gap-6 md:col-span-1'>
             <h6 className='text-[#9F9F9F] font-poppins font-medium text-base md:mb-10'>Help</h6>
             <ul className='font-poppins font-medium text-base flex flex-col gap-4 md:h-[160px] md:justify-between cursor-pointer'>
-                <li>Payment Options</li>
+                <li className="whitespace-nowrap">Payment Options</li>
                 <li>Returns</li>
-                <li>Privacy Policies</li>
+                <li className="whitespace-nowrap">Privacy Policies</li>
             </ul>
         </div>
-        <div className='flex flex-col gap-6 md:col-span-1 md:-ml-28'>
-            <h6 className='text-[#9F9F9F] font-poppins font-medium text-base md:mb-[40px]'>Newsletter</h6>
+        </div>
+        <div className='flex flex-col pt-8 gap-6 md:col-span-1 md:ml-14'>
+            <h6 className='text-[#9F9F9F] font-poppins font-medium text-base md:mb-[38px]'>Newsletter</h6>
             <form className='flex'>
                 <input 
                     className='underline' 
@@ -73,6 +78,7 @@ const Footer = () => {
         </p>
     </div>
 </footer>
+</>
   )
 }
 

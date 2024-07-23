@@ -4,12 +4,14 @@ import Header from "./components/header/Header"
 import Home from "./pages/Home"
 import Shop from "./pages/Shop"
 import Contact from "./pages/Contact"
+import Qualities from "./components/qualities/Qualities"
 
 function App() {
 
   return (
     <BrowserRouter>
       <Header/>
+      <Qualities/>
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/shop" element={<Shop />}/>
