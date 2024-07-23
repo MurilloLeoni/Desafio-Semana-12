@@ -1,4 +1,11 @@
+import { useNavigate } from "react-router-dom";
+
 const Footer = () => {
+    const navigate = useNavigate();
+
+    const handleNavigation = (caminho: string) => {
+        navigate(caminho);
+    };
   return (
     <footer className='w-screen px-6 pt-12 md:px-24'>
     <div className='grid grid-cols-1 gap-8 mb-12 md:grid-cols-5'>
@@ -28,10 +35,10 @@ const Footer = () => {
         <div className='flex flex-col gap-6 md:col-span-1 md:-ml-28'>
             <h6 className='text-[#9F9F9F] font-poppins font-medium text-base md:mb-10'>Links</h6>
             <ul className='font-poppins font-medium text-base flex flex-col gap-4 md:h-[230px] md:justify-between cursor-pointer'>
-                <li>Home</li>
-                <li>Shop</li>
+                <li onClick={() => handleNavigation('/')}>Home</li>
+                <li onClick={() => handleNavigation('/shop')}>Shop</li>
                 <li>About</li>
-                <li>Contact</li>
+                <li onClick={() => handleNavigation('/contact')}>Contact</li>
             </ul>
         </div>
         <div className='flex flex-col gap-6 md:col-span-1 md:-ml-28'>
