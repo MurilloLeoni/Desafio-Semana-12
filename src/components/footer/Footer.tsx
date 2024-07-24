@@ -54,7 +54,7 @@ const Footer = () => {
             </ul>
         </div>
         </div>
-        <div className='flex flex-col pt-8 gap-6 md:col-span-1 md:ml-14'>
+        <div className='flex flex-col pt-8 md:pt-0 gap-6 md:col-span-1 md:ml-14'>
             <h6 className='text-[#9F9F9F] font-poppins font-medium text-base md:mb-[38px]'>Newsletter</h6>
             <form className='flex'>
                 <input 
