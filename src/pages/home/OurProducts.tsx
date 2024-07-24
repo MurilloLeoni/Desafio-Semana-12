@@ -20,7 +20,7 @@ const OurProducts = () => {
   };
 
   return (
-    <div className="px-4 md:px-24 mt-14">
+    <div className="px-4 md:px-24 md:mt-14">
       <h1 className="flex justify-center pb-8 font-poppins font-bold text-[40px] leading-[48px]">Our Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {products.slice(0, cardCount).map(product => (

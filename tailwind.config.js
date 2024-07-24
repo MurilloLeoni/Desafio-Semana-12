@@ -10,6 +10,7 @@ export default {
         "#B0B0B0": "#B0B0B0",
         "#B88E2F": "#B88E2F",
         "#2EC1AC": "#2EC1AC",
+        "#FFF3E3": "#FFF3E3",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
