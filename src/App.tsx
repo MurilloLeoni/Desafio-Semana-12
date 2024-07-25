@@ -20,6 +20,7 @@ function App() {
       <Qualities/>
       <Footer/>
     </BrowserRouter>
+    
   )
 }
 export default App
