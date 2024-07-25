@@ -1,8 +1,9 @@
 import React from 'react'
+import Carrossel from '../components/Carrossel'
 
 const Shop = () => {
   return (
-    <div>Shop</div>
+    <div><Carrossel/></div>
   )
 }
 
