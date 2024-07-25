@@ -2,9 +2,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Footer from "./components/footer/Footer"
 import Header from "./components/header/Header"
 import Home from "./pages/home/Home"
-import Shop from "./pages/Shop"
-import Contact from "./pages/Contact"
+import Contact from "./pages/contact/Contact"
 import Qualities from "./components/qualities/Qualities"
+import Shop from "./pages/shop/Shop"
 
 function App() {
 
