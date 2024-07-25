@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Share = () => {
   return (
     <div className='font-poppins text-center w-screen mb-7'>
