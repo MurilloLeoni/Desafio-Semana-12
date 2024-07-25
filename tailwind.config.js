@@ -11,6 +11,8 @@ export default {
         "#B88E2F": "#B88E2F",
         "#2EC1AC": "#2EC1AC",
         "#FFF3E3": "#FFF3E3",
+        "#616161": "#616161",
+        "#3A3A3A": "#3A3A3A",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
