@@ -6,7 +6,6 @@ const Contact = () => {
   return (
     <div>
       <Bannerpath/>
-      
     </div>
   )
 }
