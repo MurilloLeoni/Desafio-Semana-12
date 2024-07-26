@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
-import Card from '../../components/cards/Card';
-import { Product } from '../../types/typeProduct';
-import Pagination from '../Pagination';
-import Filter from '../filter/Filter';
-import { useLocation } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import Card from "../../components/cards/Card";
+import { Product } from "../../types/typeProduct";
+import Pagination from "../Pagination";
+import Filter from "../filter/Filter";
+import { useLocation } from "react-router-dom";
+import { fetchProducts } from "../../utils/fetchedProducts";
 
 const List = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -13,10 +14,12 @@ const List = () => {
   const location = useLocation();
 
   useEffect(() => {
-    fetch('/db/db.json')
-      .then(response => response.json())
-      .then(data => setProducts(data.products))
-      .catch(error => console.error('Error fetching products:', error));
+    const getProducts = async () => {
+      const fetchedProducts = await fetchProducts();
+      setProducts(fetchedProducts);
+    };
+
+    getProducts();
   }, []);
 
   const start = offset + 1;
@@ -24,7 +27,8 @@ const List = () => {
 
   const filteredProducts = products.slice(offset, offset + currentDisplay);
 
-  const ShowFilterAndPagination = location.pathname !== '/' && location.pathname !== '/nome-do-produto';
+  const ShowFilterAndPagination =
+    location.pathname !== "/" && location.pathname !== "/nome-do-produto";
 
   return (
     <>
@@ -39,7 +43,7 @@ const List = () => {
       )}
       <div className="px-4 md:px-24 md:mt-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {filteredProducts.map(product => (
+          {filteredProducts.map((product) => (
             <Card key={product.id} {...product} />
           ))}
         </div>
