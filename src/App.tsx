@@ -6,6 +6,7 @@ import Contact from "./pages/contact/Contact"
 import Qualities from "./components/qualities/Qualities"
 import Shop from "./pages/shop/Shop"
 import Product from "./pages/product/Product"
+import Cart from "./pages/cart/Cart"
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/shop" element={<Shop />}/>
         <Route path="/contact" element={<Contact />}/>
         <Route path="/product" element ={<Product />}/>
+        <Route path="/cart" element ={<Cart />}/>
       </Routes>
       <Qualities/>
       <Footer/>
