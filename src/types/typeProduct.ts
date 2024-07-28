@@ -5,7 +5,7 @@ export type Product = {
     category: string;
     tags: string[];
     normalPrice: string;
-    salePrice: string;
+    salePrice: number;
     discountPercentage: number;
     new: boolean;
     description: {
