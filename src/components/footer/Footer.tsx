@@ -9,7 +9,7 @@ const Footer = () => {
   return (
   <>
   <hr />
-    <footer className='w-screen px-6 pt-12 md:px-24'>
+    <footer className='w-screen px-6 py-12 md:px-24'>
     <div className='md:grid gap-8 mb-12 md:grid-cols-5'>
         <div className='flex flex-col gap-6 md:col-span-2 md:gap-14'>
             <h2 className='font-poppins font-bold text-xl md:text-2xl'>Funiro.</h2>
