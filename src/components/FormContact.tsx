@@ -10,7 +10,7 @@ const FormContact = () => {
       };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="font-poppins w-[530px] px-12 mb-16">
+    <form onSubmit={handleSubmit(onSubmit)} className="w-[530px] px-12 mb-16">
     <div className='flex flex-col gap-9'>
         <div className="flex flex-col">
           <label className="font-medium mb-6" htmlFor="name">

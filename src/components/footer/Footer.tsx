@@ -12,9 +12,9 @@ const Footer = () => {
     <footer className='w-screen px-6 py-12 md:px-24'>
     <div className='md:grid gap-8 mb-12 md:grid-cols-5'>
         <div className='flex flex-col gap-6 md:col-span-2 md:gap-14'>
-            <h2 className='font-poppins font-bold text-xl md:text-2xl'>Funiro.</h2>
+            <h2 className='font-bold text-xl md:text-2xl'>Funiro.</h2>
             <div className='w-full md:w-72'>
-                <p className='font-poppins font-normal text-sm text-[#9F9F9F] md:text-base'>
+                <p className='font-normal text-sm text-[#9F9F9F] md:text-base'>
                     400 University Drive Suite 200 Coral Gables,<br />
                     FL 33134 USA
                 </p>
@@ -36,8 +36,8 @@ const Footer = () => {
         </div>
         <div className="grid grid-cols-2">
         <div className='flex flex-col gap-6 md:col-span-1 md:-ml-24'>
-            <h6 className='text-[#9F9F9F] font-poppins font-medium text-base md:mb-10'>Links</h6>
-            <ul className='font-poppins font-medium text-base flex flex-col gap-4 md:h-[230px] md:justify-between cursor-pointer'>
+            <h6 className='text-[#9F9F9F] font-medium text-base md:mb-10'>Links</h6>
+            <ul className='font-medium text-base flex flex-col gap-4 md:h-[230px] md:justify-between cursor-pointer'>
                 <li onClick={() => handleNavigation('/')}>Home</li>
                 <li onClick={() => handleNavigation('/shop')}>Shop</li>
                 <li>About</li>
@@ -46,8 +46,8 @@ const Footer = () => {
         </div>
         
         <div className='flex flex-col gap-6 md:col-span-1'>
-            <h6 className='text-[#9F9F9F] font-poppins font-medium text-base md:mb-10'>Help</h6>
-            <ul className='font-poppins font-medium text-base flex flex-col gap-4 md:h-[160px] md:justify-between cursor-pointer'>
+            <h6 className='text-[#9F9F9F] font-medium text-base md:mb-10'>Help</h6>
+            <ul className='font-medium text-base flex flex-col gap-4 md:h-[160px] md:justify-between cursor-pointer'>
                 <li className="whitespace-nowrap">Payment Options</li>
                 <li>Returns</li>
                 <li className="whitespace-nowrap">Privacy Policies</li>
@@ -55,7 +55,7 @@ const Footer = () => {
         </div>
         </div>
         <div className='flex flex-col pt-8 md:pt-0 gap-6 md:col-span-1 md:ml-14'>
-            <h6 className='text-[#9F9F9F] font-poppins font-medium text-base md:mb-[38px]'>Newsletter</h6>
+            <h6 className='text-[#9F9F9F] font-medium text-base md:mb-[38px]'>Newsletter</h6>
             <form className='flex'>
                 <input 
                     className='underline' 
@@ -64,7 +64,7 @@ const Footer = () => {
                 />
                 <button 
                     type="submit" 
-                    className='ml-1 mt-[5px] font-poppins font-medium text-sm underline'
+                    className='ml-1 mt-[5px] font-medium text-sm underline'
                 >
                     SUBSCRIBE
                 </button>
@@ -73,7 +73,7 @@ const Footer = () => {
     </div>
     <div>
         <hr />
-        <p className='mt-9 font-poppins font-normal text-base'>
+        <p className='mt-9 font-normal text-base'>
             2023 furino. All rights reserved
         </p>
     </div>

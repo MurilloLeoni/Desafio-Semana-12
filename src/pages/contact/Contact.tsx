@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <div>
       <Bannerpath />
-      <div className="flex flex-col items-center font-poppins mb-36 mt-24">
+      <div className="flex flex-col items-center mb-36 mt-24">
         <h1 className="font-semibold text-4xl">Get In Touch With Us</h1>
         <p className="text-#9F9F9F w-[650px] text-center  mt-2">
           For More Information About Our Product & Services. Please Feel Free To

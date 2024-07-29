@@ -8,7 +8,7 @@ const Bannerpath = () => {
   
 
   return (
-    <div className="relative font-poppins">
+    <div className="relative">
       <img className="w-screen mx-auto" src="/src/assets/imgs/Banner-path.png" alt="Banner" />
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
         <h1 className="text-5xl font-medium">{path}</h1>

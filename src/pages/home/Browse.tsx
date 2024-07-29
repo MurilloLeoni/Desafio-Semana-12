@@ -1,6 +1,6 @@
 const Browse = () => {
   return (
-    <div className='font-poppins text-center mt-14 pb-6'>
+    <div className='text-center mt-14 pb-6'>
     <h1 className='font-bold text-2xl md:text-[40px] leading-10 md:leading-[50px]'>
         Browse The Range
     </h1>

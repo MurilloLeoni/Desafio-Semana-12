@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { fetchProducts } from '../../utils/fetchedProducts';
+import React from 'react'
 import { Product } from '../../types/typeProduct';
 
 const Main = ({
@@ -8,7 +7,7 @@ const Main = ({
     category = 'Categória',
     tags = ['tag1', 'tag2', 'tag3'],
     normalPrice = 'Rp 2500,00',
-    salePrice = 'Rp 2000,00',
+    salePrice = 2000.00,
     description = { short: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique voluptas commodi architecto in delectus consectetur est rem eveniet. Ut possimus dolorem quidem tempora accusamus doloribus sint sequi quae nulla sit!', long: 'Long descricão do produto' },
     colors = [
         { name: 'Azul', hex: '#0000FF' },
@@ -20,7 +19,7 @@ const Main = ({
     images,
 }: Product) => {
   return (
-    <div className='flex gap-20 px-24 py-11 font-poppins'>
+    <div className='flex gap-20 px-24 py-11'>
         <div className='flex flex-col gap-8'>
             <img className="w-20 h-20 object-cover" src='/src/assets/imgs/Bedroom-home.png' alt="Imagem1" />
             <img className="w-20 h-20 object-cover" src='/src/assets/imgs/Bedroom-home.png' alt="Imagem1" />

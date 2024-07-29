@@ -1,16 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Card from "../../components/cards/Card";
-import { Product } from "../../types/typeProduct";
+// import { Product } from "../../types/typeProduct";
 import Pagination from "../Pagination";
 import Filter from "../filter/Filter";
 import { useLocation } from "react-router-dom";
 import { fetchProducts } from "../../utils/fetchedProducts";
+import AppContext from "../../contexts/AppContext";
 
 const List = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  // const [products, setProducts] = useState<Product[]>([]);
+  const context = useContext(AppContext);
+
+  if (!context) {
+    throw new Error("AppContext must be used within a Provider");
+  }
+
+  const { products, setProducts } = context;
   const [offset, setOffset] = useState(0);
   const [currentDisplay, setCurrentDisplay] = useState(16);
-
   const location = useLocation();
 
   useEffect(() => {
@@ -20,7 +27,7 @@ const List = () => {
     };
 
     getProducts();
-  }, []);
+  }, [setProducts]);
 
   const start = offset + 1;
   const end = Math.min(offset + currentDisplay, products.length);

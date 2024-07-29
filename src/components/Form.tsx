@@ -21,10 +21,10 @@ const Form = () => {
 
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="font-poppins flex mx-auto gap-28 pb-32"
+      className=" flex mx-auto gap-28 pb-32"
     >
       <div className="flex flex-col gap-9 items-start">
-      <h1 className='font-poppins font-semibold text-4xl'>Billing details</h1>
+      <h1 className='font-semibold text-4xl'>Billing details</h1>
       <div className="flex gap-8">
         <div className="flex flex-col">
           <label className="font-medium mb-6" htmlFor="name">

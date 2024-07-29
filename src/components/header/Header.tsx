@@ -1,15 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { User, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
-import CartOverlay from "../CartOverlay";
+import CartOverlay from "../cart/CartOverlay";
 import UserDropdown from "../UserDropdown";
+import AppContext from "../../contexts/AppContext";
 
 const Header = () => {
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [user, setUser] = useState<User | null>(null);
   const [isCartOverlayVisible, setIsCartOverlayVisible] = useState(false);
+  const context = useContext(AppContext);
+
+  if (!context) {
+    throw new Error("AppContext must be used within a Provider");
+  }
+
+  const { cartItems } = context;
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
@@ -34,7 +42,7 @@ const Header = () => {
           src="/src/assets/imgs/Logo-Furniro.png"
           alt="Logo"
         />
-        <nav className="flex justify-center items-center md:mx-auto gap-5 md:justify-between md:w-[430px] font-poppins text-base font-medium leading-6 cursor-pointer">
+        <nav className="flex justify-center items-center md:mx-auto gap-5 md:justify-between md:w-[430px] text-base font-medium leading-6 cursor-pointer">
           <p onClick={() => navigate("/")}>Home</p>
           <p onClick={() => navigate("/shop")}>Shop</p>
           <p>About</p>
@@ -47,12 +55,18 @@ const Header = () => {
             src="/src/assets/icons/Icon-user.png"
             alt="User"
           />
+          <div className="relative">
           <img
             onClick={toggleCartOverlay}
             className="w-6 h-6"
             src="/src/assets/icons/Icon-cart.png"
             alt="Cart"
           />
+          {cartItems.length > 0 && (<span className="absolute text-white bg-red-600 w-5 h-5 bottom-4 right-4 rounded-full flex items-center justify-center ">
+            {cartItems.length}
+          </span>
+          )}
+          </div>
         </div>
       </header>
       <UserDropdown

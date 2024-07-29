@@ -8,7 +8,7 @@ type FilterProps = {
   
   const Filter = ({ totalProducts, currentDisplay, setCurrentDisplay, start, end }: FilterProps) => {
     return (
-      <div className='bg-#FFF3E3 w-screen px-24 py-9 flex justify-between font-poppins font-normal -mt-2'>
+      <div className='bg-#FFF3E3 w-screen px-24 py-9 flex justify-between font-normal -mt-2'>
         <div className='flex items-center justify-between w-[420px]'>
           <div className='flex'>
             <img className='w-6 h-6 mr-2' src="/src/assets/icons/Icon-filter.png" alt="Filter" />

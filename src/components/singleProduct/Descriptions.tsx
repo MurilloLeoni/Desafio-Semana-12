@@ -8,7 +8,7 @@ const Descriptions = ({
   },
 }: Product) => {
   return (
-    <div className="px-52 font-poppins">
+    <div className="px-52">
       <div className="flex justify-center items-center gap-32  text-2xl text-#9F9F9F mb-9 cursor-pointer">
         <h2>Description</h2>
         <h2>Additional Information</h2>

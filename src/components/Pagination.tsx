@@ -21,7 +21,7 @@ const Pagination = ({ limit, total, offset, setOffset }: Props) => {
     }
 
     return (
-        <ul className="flex items-center justify-center gap-9 py-6 font-poppins text-xl">
+        <ul className="flex items-center justify-center gap-9 py-6  text-xl">
             {Array.from({ length: Math.min(MAX_ITEMS, pages) })
                 .map((_, index) => index + first)
                 .map((page) => (

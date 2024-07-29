@@ -5,7 +5,7 @@ const CartProduct = () => {
   const precoProduto = "Rp 2.000,00";
   const precoTotal = "Rp 2.000,00";
   return (
-    <div className="flex mx-auto font-poppins py-20 px-28">
+    <div className="flex mx-auto py-20 px-28">
         <div>
         <div className="bg-#FFF3E3 flex gap-20 px-36 py-4 mb-20 font-medium">
             <p>Product</p>

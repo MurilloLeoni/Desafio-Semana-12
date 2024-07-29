@@ -2,7 +2,7 @@ import React from "react";
 
 const Info = () => {
   return (
-    <div className="font-poppins flex flex-col gap-10 pl-60">
+    <div className="flex flex-col gap-10 pl-60">
       <div className="flex">
         <img
           className="w-6 h-7"
