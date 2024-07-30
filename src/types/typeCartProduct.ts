@@ -5,4 +5,5 @@ export type CartItemType = {
   images: {
   mainImage: string;
   };
+  quantity: number;
 }

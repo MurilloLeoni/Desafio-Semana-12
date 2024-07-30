@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Product } from "../../types/typeProduct";
 import AppContext from "../../contexts/AppContext";
+import ButtonChangeQuantity from "../ButtonChangeQuantity";
 
 const Main = ({
   id,
@@ -16,34 +17,49 @@ const Main = ({
   category,
   colors,
 }: Product) => {
+  const [selectedImage, setSelectedImage] = useState(images.mainImage);
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const [selectedColor, setSelectedColor] = useState<string | null>(null);
+  const context = useContext(AppContext);
 
-    const [selectedImage, setSelectedImage ] = useState(images.mainImage);
-    const [selectedSize, setSelectedSize] = useState<string | null>(null);
-    const [selectedColor, setSelectedColor] = useState<string | null>(null);
-    const context = useContext(AppContext);
-  
-    if (!context) {
-      throw new Error("AppContext must be used within a Provider");
+  if (!context) {
+    throw new Error("AppContext must be used within a Provider");
+  }
+
+  const { cartItems, setCartItems } = context;
+
+  const item = cartItems.find((item) => item.id === id);
+  const currentQuantity = item ? item.quantity : 1;
+
+  const handleQuantityChange = (change: number) => {
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id
+          ? { ...item, quantity: Math.max(item.quantity + change, 1) }
+          : item
+      )
+    );
+  };
+
+  const handleImageClick = (image: string) => {
+    setSelectedImage(image);
+  };
+
+  const handleSizeClick = (size: string) => {
+    setSelectedSize(size);
+  };
+
+  const handleColorClick = (color: string) => {
+    setSelectedColor(color);
+  };
+
+  const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    if (item) {
+      return;
     }
-  
-    const { cartItems, setCartItems } = context;
-
-    const handleImageClick = (image: string) => {
-      setSelectedImage(image);
-    };
-
-    const handleSizeClick = (size: string) => {
-        setSelectedSize(size);
-      };
-
-    const handleColorClick = (color: string) => {
-        setSelectedColor(color);
-      };
-
-      const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.stopPropagation();
-        setCartItems([...cartItems, { id, title, salePrice, images }]);
-      };
+    setCartItems([...cartItems, { id, title, salePrice, images, quantity: 1 }]);
+  };
 
   return (
     <div className="flex gap-20 px-24 py-11 text-justify">
@@ -52,7 +68,7 @@ const Main = ({
           className="w-20 h-20 object-cover"
           src={images.mainImage}
           alt="Imagem1"
-          onClick = {() => handleImageClick(images.mainImage)}
+          onClick={() => handleImageClick(images.mainImage)}
         />
         {images.gallery.map((image, index) => (
           <img
@@ -86,7 +102,11 @@ const Main = ({
               key={index}
               onClick={() => handleSizeClick(size)}
               className={`px-3 py-2 rounded-md flex items-center justify-center 
-                ${selectedSize === size ? 'bg-#B88E2F text-white' : 'bg-#FAF3EA text-black'}`}
+                ${
+                  selectedSize === size
+                    ? "bg-#B88E2F text-white"
+                    : "bg-#FAF3EA text-black"
+                }`}
             >
               {size}
             </button>
@@ -99,25 +119,28 @@ const Main = ({
               key={index}
               onClick={() => handleColorClick(color.hex)}
               className={`w-8 h-8 rounded-full border-2
-                ${selectedColor === color.hex ? 'border-black' : 'border-transparent opacity-70'}
+                ${
+                  selectedColor === color.hex
+                    ? "border-black"
+                    : "border-transparent opacity-70"
+                }
               `}
               style={{ backgroundColor: color.hex }}
               aria-label={`Color ${color.name}`}
-            >
-            </button>
+            ></button>
           ))}
         </div>
         <div className="flex gap-4 mb-6">
-          <select
-            className="border border-#9F9F9F rounded-lg px-4 py-4"
-            name=""
-            id=""
+          <ButtonChangeQuantity
+            handleQuantityChange={handleQuantityChange}
+            quantity={currentQuantity}
+          />
+          <button
+            onClick={handleAddToCart}
+            className="border border-black px-12 py-4 rounded-2xl"
           >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-          <button onClick={handleAddToCart} className="border border-black px-12 py-4 rounded-2xl">Add to cart</button>
+            Add to cart
+          </button>
         </div>
         <hr />
         <div className="text-#9F9F9F flex flex-col gap-3 mt-6">

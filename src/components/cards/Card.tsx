@@ -25,7 +25,7 @@ const Card = ({
 
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    setCartItems([...cartItems, { id, title, salePrice, images }]);
+    setCartItems([...cartItems, { id, title, salePrice, images, quantity: 1 }]);
   };
 
   const handleCardClick = () => {
