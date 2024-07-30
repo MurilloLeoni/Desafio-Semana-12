@@ -11,12 +11,17 @@ function Provider({ children }: ProviderProps) {
 
     const [products, setProducts] = useState<Product[]>([]);
     const [cartItems, setCartItems] = useState<CartItemType[]>([]);
+    const clearCart = () => setCartItems([]);
+    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
     const value = {
         products,
         setProducts,
         cartItems,
         setCartItems,
+        clearCart,
+        selectedProduct,
+        setSelectedProduct
     };
 
     return (

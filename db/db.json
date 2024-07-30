@@ -51,7 +51,11 @@
       "colors": [
         {
           "name": "Branco",
-          "hex": "#ffffff"
+          "hex": "#86b380"
+        },
+        {
+          "name": "Marrom",
+          "hex": "#800000"
         }
       ],
       "sizes": ["G", "M"],

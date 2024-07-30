@@ -10,7 +10,7 @@ const CartOverlay: React.FC<{ isVisible: boolean; onClose: () => void }> = ({isV
     throw new Error("AppContext must be used within a Provider");
   }
 
-  const { cartItems } = context;
+  const { cartItems, clearCart } = context;
 
   const totalPrice = cartItems.reduce((sum, product) => product.salePrice + sum, 0).toFixed(2);
   const navigate = useNavigate();
@@ -43,7 +43,7 @@ const CartOverlay: React.FC<{ isVisible: boolean; onClose: () => void }> = ({isV
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold mb-6">Shopping Cart</h2>
           <img
-            onClick={onClose}
+            onClick={clearCart}
             className="-mt-4 cursor-pointer"
             src="/src/assets/icons/Icon-closeCart.png"
             alt="CloseCart"

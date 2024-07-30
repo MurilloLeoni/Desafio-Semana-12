@@ -8,6 +8,7 @@ export type Product = {
     salePrice: number;
     discountPercentage: number;
     new: boolean;
+    slug: string;
     description: {
         short: string;
         long: string;

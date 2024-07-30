@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Product } from "../../types/typeProduct";
 import AppContext from "../../contexts/AppContext";
 
@@ -11,8 +12,10 @@ const Card = ({
   discountPercentage,
   images,
   new: isNew,
+  slug,
 }: Product) => {
   const context = useContext(AppContext);
+  const navigate = useNavigate();
 
   if (!context) {
     throw new Error("AppContext must be used within a Provider");
@@ -20,18 +23,26 @@ const Card = ({
 
   const { cartItems, setCartItems } = context;
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
     setCartItems([...cartItems, { id, title, salePrice, images }]);
+  };
+
+  const handleCardClick = () => {
+    navigate(`/products/${slug}`);
   };
 
   const formattedDiscount = isNew ? "New" : `${discountPercentage * 100}%`;
 
   return (
-    <div className="relative w-72 h-full group">
+    <div
+      className="relative w-72 h-full group cursor-pointer"
+      onClick={handleCardClick}
+    >
       <img
         className="w-full h-[300px] object-cover"
         src={images.mainImage}
-        alt="Movel"
+        alt={title}
       />
       <div
         className={`absolute top-2 right-2 ${
@@ -42,7 +53,7 @@ const Card = ({
           {isNew ? "New" : formattedDiscount}
         </p>
       </div>
-      <div className=" ml-3 mt-3 flex flex-col gap-3">
+      <div className="ml-3 mt-3 flex flex-col gap-3">
         <p className="text-2xl font-semibold">{title}</p>
         <p className="text-[#9F9F9F] font-medium">{description.short}</p>
         <div className="flex items-center">

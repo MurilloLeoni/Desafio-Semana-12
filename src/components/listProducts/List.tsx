@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from "react";
 import Card from "../../components/cards/Card";
-// import { Product } from "../../types/typeProduct";
 import Pagination from "../Pagination";
 import Filter from "../filter/Filter";
 import { useLocation } from "react-router-dom";
@@ -8,7 +7,6 @@ import { fetchProducts } from "../../utils/fetchedProducts";
 import AppContext from "../../contexts/AppContext";
 
 const List = () => {
-  // const [products, setProducts] = useState<Product[]>([]);
   const context = useContext(AppContext);
 
   if (!context) {
