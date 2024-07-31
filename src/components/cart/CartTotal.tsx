@@ -22,7 +22,7 @@ const CartTotal = ({ subtotal }: CartTotalProps) => {
           Rp. {formattedSubtotal}
         </p>
       </div>
-      <button className="px-16 py-4 border-2 border-black rounded-2xl mt-11 text-xl">
+      <button className="px-16 py-4 border-2 border-black rounded-2xl mt-11 text-xl text-nowrap">
         Check Out
       </button>
     </div>

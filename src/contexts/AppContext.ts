@@ -10,6 +10,7 @@ interface AppContextProps {
     clearCart: () => void;
     selectedProduct: Product | null;
     setSelectedProduct: React.Dispatch<React.SetStateAction<Product | null>>
+    updateQuantity: (id: number, quantity: number) => void;
   }
 
 const AppContext = createContext<AppContextProps | undefined>(undefined);

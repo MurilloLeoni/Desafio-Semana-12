@@ -1,7 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Product } from "../../types/typeProduct";
 import AppContext from "../../contexts/AppContext";
-import ButtonChangeQuantity from "../ButtonChangeQuantity";
 
 const Main = ({
   id,
@@ -20,25 +19,32 @@ const Main = ({
   const [selectedImage, setSelectedImage] = useState(images.mainImage);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
+  const [quantity, setQuantity] = useState(1);
+
   const context = useContext(AppContext);
 
   if (!context) {
     throw new Error("AppContext must be used within a Provider");
   }
 
-  const { cartItems, setCartItems } = context;
+  const { cartItems, setCartItems, updateQuantity } = context;
 
   const item = cartItems.find((item) => item.id === id);
-  const currentQuantity = item ? item.quantity : 1;
+  const currentQuantity = item ? item.quantity : quantity;
+
+  useEffect(() => {
+    setQuantity(currentQuantity);
+  }, [currentQuantity, id]);
+
+  useEffect(() => {
+    setQuantity(1);
+    setSelectedImage(images.mainImage);
+  }, [id, images.mainImage]);
 
   const handleQuantityChange = (change: number) => {
-    setCartItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id
-          ? { ...item, quantity: Math.max(item.quantity + change, 1) }
-          : item
-      )
-    );
+    const newQuantity = Math.max(quantity + change, 1);
+    setQuantity(newQuantity);
+    updateQuantity(id, newQuantity);
   };
 
   const handleImageClick = (image: string) => {
@@ -56,9 +62,10 @@ const Main = ({
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     if (item) {
-      return;
+      updateQuantity(id, quantity);
+    } else {
+      setCartItems([...cartItems, { id, title, salePrice, images, quantity }]);
     }
-    setCartItems([...cartItems, { id, title, salePrice, images, quantity: 1 }]);
   };
 
   return (
@@ -131,10 +138,11 @@ const Main = ({
           ))}
         </div>
         <div className="flex gap-4 mb-6">
-          <ButtonChangeQuantity
-            handleQuantityChange={handleQuantityChange}
-            quantity={currentQuantity}
-          />
+          <div className="flex border border-#9F9F9F rounded-lg px-3 py-4 gap-7">
+            <button onClick={() => handleQuantityChange(-1)}>-</button>
+            <p>{quantity}</p>
+            <button onClick={() => handleQuantityChange(1)}>+</button>
+          </div>
           <button
             onClick={handleAddToCart}
             className="border border-black px-12 py-4 rounded-2xl"

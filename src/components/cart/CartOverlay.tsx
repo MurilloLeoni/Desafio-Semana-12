@@ -3,16 +3,21 @@ import { useNavigate } from "react-router-dom";
 import CartItem from "./CartItem";
 import AppContext from "../../contexts/AppContext";
 
-const CartOverlay: React.FC<{ isVisible: boolean; onClose: () => void }> = ({isVisible, onClose}) => {
+const CartOverlay: React.FC<{ isVisible: boolean; onClose: () => void }> = ({
+  isVisible,
+  onClose,
+}) => {
   const context = useContext(AppContext);
-
   if (!context) {
     throw new Error("AppContext must be used within a Provider");
   }
 
   const { cartItems, clearCart } = context;
 
-  const totalPrice = cartItems.reduce((sum, product) => product.salePrice + sum, 0).toFixed(2);
+  const totalPrice = cartItems
+    .reduce((sum, item) => sum + item.salePrice * item.quantity, 0)
+    .toFixed(2);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -51,14 +56,14 @@ const CartOverlay: React.FC<{ isVisible: boolean; onClose: () => void }> = ({isV
         </div>
         <hr />
         <div className="flex flex-col flex-grow overflow-auto h-[400px]">
-          {cartItems.map((cartItem) => <CartItem key={cartItem.id} {...cartItem} />)}
+          {cartItems.map((cartItem) => (
+            <CartItem key={cartItem.id} {...cartItem} />
+          ))}
         </div>
         <div className="mb-6 mt-10">
           <h3 className="text-xl font-semibold flex justify-between">
             Subtotal
-            <span className="font-semibold text-#B88E2F">
-              Rp. {totalPrice}
-            </span>
+            <span className="font-semibold text-#B88E2F">Rp. {totalPrice}</span>
           </h3>
         </div>
         <hr />

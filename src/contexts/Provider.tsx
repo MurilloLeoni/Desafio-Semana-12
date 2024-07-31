@@ -13,6 +13,14 @@ function Provider({ children }: ProviderProps) {
   const clearCart = () => setCartItems([]);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
+  const updateQuantity = (id: number, quantity: number) => {
+    setCartItems(prevItems =>
+      prevItems.map(item =>
+        item.id === id ? { ...item, quantity } : item
+      )
+    );
+  };
+
   const value = {
     products,
     setProducts,
@@ -21,6 +29,7 @@ function Provider({ children }: ProviderProps) {
     clearCart,
     selectedProduct,
     setSelectedProduct,
+    updateQuantity
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

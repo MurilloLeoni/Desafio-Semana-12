@@ -2,7 +2,7 @@ import { useContext } from "react";
 import AppContext from "../../contexts/AppContext";
 import { CartItemType } from "../../types/typeCartProduct";
 
-const CartItem = ({ id, title, salePrice, images }: CartItemType) => {
+const CartItem = ({ id, title, salePrice, images, quantity }: CartItemType) => {
   const context = useContext(AppContext);
 
   if (!context) {
@@ -16,6 +16,8 @@ const CartItem = ({ id, title, salePrice, images }: CartItemType) => {
     setCartItems(updatedItems);
   };
 
+  const totalPrice = (salePrice * quantity).toFixed(2);
+
   return (
     <div className="mt-11 flex flex-col gap-5">
       <div className="flex items-center py-2">
@@ -26,7 +28,7 @@ const CartItem = ({ id, title, salePrice, images }: CartItemType) => {
         />
         <div className="flex-1 ml-4">
           <p className="text-lg">{title}</p>
-          <p className="text-sm">1 x Rp. {salePrice}</p>
+          <p className="text-sm">{quantity} x Rp. {totalPrice}</p>
         </div>
         <button
           onClick={handleRemoveproduct}

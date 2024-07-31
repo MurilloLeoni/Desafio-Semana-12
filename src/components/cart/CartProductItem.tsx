@@ -1,27 +1,25 @@
 import React, { useContext } from "react";
 import { CartItemType } from "../../types/typeCartProduct";
 import AppContext from "../../contexts/AppContext";
-import ButtonChangeQuantity from "../ButtonChangeQuantity";
 
-const CartProductItem = ({ id, title, salePrice, images }: CartItemType) => {
+const CartProductItem = ({
+  id,
+  title,
+  salePrice,
+  images,
+  quantity,
+}: CartItemType) => {
   const context = useContext(AppContext);
   if (!context) {
     throw new Error("AppContext must be used within a Provider");
   }
+  const { cartItems, setCartItems, updateQuantity } = context;
 
-  const { cartItems, setCartItems } = context;
-  const item = cartItems.find((item) => item.id === id);
-  const currentQuantity = item ? item.quantity : 1;
-  const totalPrice = (salePrice * currentQuantity).toFixed(2);
+  const totalPrice = (salePrice * quantity).toFixed(2);
 
-  const handleQuantityChange = (change: number) => {
-    setCartItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id
-          ? { ...item, quantity: Math.max(item.quantity + change, 1) }
-          : item
-      )
-    );
+  const handleQuantityChange = (newQuantity: number) => {
+    if (newQuantity < 1) return;
+    updateQuantity(id, newQuantity);
   };
 
   const handleRemoveproduct = () => {
@@ -38,10 +36,11 @@ const CartProductItem = ({ id, title, salePrice, images }: CartItemType) => {
       />
       <p className="text-#9F9F9F w-44 text-justify">{title}</p>
       <p className="text-#9F9F9F -ml-4 w-32">Rp. {salePrice}</p>
-      <ButtonChangeQuantity
-        handleQuantityChange={handleQuantityChange}
-        quantity={currentQuantity}
-      />
+      <div className="flex border border-#9F9F9F rounded-lg px-3 py-4 gap-7">
+        <button onClick={() => handleQuantityChange(quantity - 1)}>-</button>
+        <p>{quantity}</p>
+        <button onClick={() => handleQuantityChange(quantity + 1)}>+</button>
+      </div>
       <p className="ml-10 w-32">Rp. {totalPrice}</p>
       <img
         onClick={handleRemoveproduct}
