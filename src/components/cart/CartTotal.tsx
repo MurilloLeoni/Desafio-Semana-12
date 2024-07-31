@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 type CartTotalProps = {
   subtotal: number;
@@ -6,6 +7,7 @@ type CartTotalProps = {
 
 const CartTotal = ({ subtotal }: CartTotalProps) => {
   const formattedSubtotal = subtotal.toFixed(2);
+  const navigate = useNavigate();
 
   return (
     <div className="bg-#FFF3E3 px-20 pt-4 pb-20 flex flex-col gap-5 ml-20">
@@ -22,7 +24,7 @@ const CartTotal = ({ subtotal }: CartTotalProps) => {
           Rp. {formattedSubtotal}
         </p>
       </div>
-      <button className="px-16 py-4 border-2 border-black rounded-2xl mt-11 text-xl text-nowrap">
+      <button onClick={() => navigate("/checkout")} className="px-16 py-4 border-2 border-black rounded-2xl mt-11 text-xl text-nowrap">
         Check Out
       </button>
     </div>
