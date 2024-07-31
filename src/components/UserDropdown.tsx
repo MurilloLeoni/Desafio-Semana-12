@@ -6,13 +6,11 @@ import { auth } from "./firebase";
 interface UserDropdownProps {
   user: User | null;
   isVisible: boolean;
-  onClose: () => void;
 }
 
 const UserDropdown: React.FC<UserDropdownProps> = ({
   user,
-  isVisible,
-  onClose,
+  isVisible
 }) => {
   const navigate = useNavigate();
 

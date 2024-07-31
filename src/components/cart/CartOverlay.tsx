@@ -2,11 +2,14 @@ import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CartItem from "./CartItem";
 import AppContext from "../../contexts/AppContext";
+import { onAuthStateChanged, User } from "firebase/auth";
+import { auth } from "../firebase";
 
 const CartOverlay: React.FC<{ isVisible: boolean; onClose: () => void }> = ({
   isVisible,
   onClose,
 }) => {
+  const [user, setUser] = React.useState<User | null>(null);
   const context = useContext(AppContext);
   if (!context) {
     throw new Error("AppContext must be used within a Provider");
@@ -33,6 +36,24 @@ const CartOverlay: React.FC<{ isVisible: boolean; onClose: () => void }> = ({
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [onClose]);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+  }, []);
+
+
+  const handleCheckout = () => {
+    if (user && cartItems.length > 0) {
+      navigate("/checkout");
+    } else if (user && cartItems.length === 0) {
+      alert("Your cart is empty");
+    } else {
+      alert("Please login first");
+      navigate("/login");
+    }
+  };
 
   return (
     <div
@@ -75,7 +96,7 @@ const CartOverlay: React.FC<{ isVisible: boolean; onClose: () => void }> = ({
             Cart
           </button>
           <button
-            onClick={() => navigate("/checkout")}
+            onClick={handleCheckout}
             className="px-7 py-2 rounded-[50px] border border-black"
           >
             Checkout

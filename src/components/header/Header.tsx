@@ -72,7 +72,6 @@ const Header = () => {
       <UserDropdown
         user={user}
         isVisible={isDropdownOpen}
-        onClose={() => setIsDropdownOpen(false)}
       />
       <CartOverlay
         isVisible={isCartOverlayVisible}
