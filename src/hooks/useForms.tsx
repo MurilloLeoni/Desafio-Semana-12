@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form"
 import { FormSchema, formSchema } from "../schemas/formSchema"
 
 export const useForms = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm<FormSchema>({
+    const { register, handleSubmit, formState: { errors }, setValue } = useForm<FormSchema>({
         resolver: zodResolver(formSchema)
     })
-    return { register, handleSubmit, errors }
+    return { register, handleSubmit, errors, setValue }
 }

@@ -4,7 +4,7 @@ import { FormSchema } from "../schemas/formSchema";
 import AppContext from "../contexts/AppContext";
 
 const Form = () => {
-  const { register, handleSubmit, errors } = useForms();
+  const { register, handleSubmit, errors, setValue } = useForms();
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<
     string | null
   >(null);
@@ -30,6 +30,19 @@ const Form = () => {
     console.log(data);
   };
 
+  const checkCEP = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const cep = e.target.value.replace(/\D/g, "");
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setValue("street", data.logradouro);
+        setValue("city", data.localidade);
+        setValue("province", data.bairro);
+        setValue("country", data.uf);
+      });
+  };
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -43,7 +56,7 @@ const Form = () => {
               First Name
             </label>
             <input
-              className="border border-#9F9F9F rounded-[10px] pr-8 pl-2 py-6"
+              className="border border-#9F9F9F rounded-[10px] pr-8 pl-2 py-6 w-full"
               type="text"
               id="name"
               {...register("name")}
@@ -94,6 +107,7 @@ const Form = () => {
             type="text"
             id="zipcode"
             {...register("zipcode")}
+            onBlur={checkCEP}
           />
           {errors.zipcode && (
             <span className="text-red-500 italic">
@@ -213,8 +227,7 @@ const Form = () => {
               <h1 className="font-medium text-2xl">Product</h1>
               <h1 className="font-medium text-2xl">Subtotal</h1>
             </div>
-            <p className="text-#B88E2F font-bold text-2xl -ml-10">
-            </p>
+            <p className="text-#B88E2F font-bold text-2xl -ml-10"></p>
             {cartItems.map((item) => (
               <div
                 key={item.id}
