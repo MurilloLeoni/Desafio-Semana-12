@@ -15,6 +15,9 @@ const Main = ({
   tags,
   category,
   colors,
+  discountPercentage,
+  new: isNew,
+  slug,
 }: Product) => {
   const [selectedImage, setSelectedImage] = useState(images.mainImage);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
@@ -27,7 +30,8 @@ const Main = ({
     throw new Error("AppContext must be used within a Provider");
   }
 
-  const { cartItems, setCartItems, updateQuantity } = context;
+  const { cartItems, setCartItems, updateQuantity, setSelectedProduct } =
+    context;
 
   const item = cartItems.find((item) => item.id === id);
   const currentQuantity = item ? item.quantity : quantity;
@@ -40,6 +44,43 @@ const Main = ({
     setQuantity(1);
     setSelectedImage(images.mainImage);
   }, [id, images.mainImage]);
+
+  useEffect(() => {
+    setSelectedProduct({
+      id,
+      sku,
+      title,
+      salePrice,
+      description,
+      images,
+      normalPrice,
+      rating,
+      sizes,
+      tags,
+      category,
+      colors,
+      discountPercentage,
+      new: isNew,
+      slug,
+    });
+  }, [
+    id,
+    sku,
+    title,
+    salePrice,
+    description,
+    images,
+    normalPrice,
+    rating,
+    sizes,
+    tags,
+    category,
+    colors,
+    discountPercentage,
+    isNew,
+    slug,
+    setSelectedProduct,
+  ]);
 
   const handleQuantityChange = (change: number) => {
     const newQuantity = Math.max(quantity + change, 1);
@@ -93,7 +134,7 @@ const Main = ({
         alt="ImagemPrincipal"
       />
       <div className="flex flex-col gap-4 w-96">
-        <h1 className="text-4xl">{title}</h1>
+        <h1 className="text-4xl text-left">{title}</h1>
         <div className="flex gap-6 items-center">
           <h4 className="text-#9F9F9F font-medium text-2xl">Rp. {salePrice}</h4>
           <h4 className="line-through font-medium text-base">
@@ -159,11 +200,37 @@ const Main = ({
             Category<span className="ml-5 mr-2">:</span> {category}
           </h6>
           <h6>
-            Tags<span className="ml-14 mr-2">:</span> {tags + `,`}
+            Tags<span className="ml-14 mr-2">:</span> {tags.join(", ")}
           </h6>
-          <h6>
-            Share<span className="ml-12 mr-2">:</span>Fcaebook
-          </h6>
+          <div className="flex flex-row items-center">
+            <h6>
+              Share<span className="ml-12 mr-3">:</span>
+              </h6>
+              <div className="flex gap-6">
+                <a href="https://www.facebook.com" target="_blank">
+                <img
+                  className="w-6 h-6"
+                  src="/src/assets/icons/Icon-facebook2.png"
+                  alt="Facebook"
+                />
+                </a>
+                <a href=" https://www.linkedin.com" target="_blank">
+                <img
+                  className="w-6 h-6"
+                  src="/src/assets/icons/Icon-linkedin2.png"
+                  alt="Linkedin"
+                />
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                <img
+                  className="w-7 h-7"
+                  src="/src/assets/icons/Icon-twitter2.png"
+                  alt="Twitter"
+                />
+                </a>
+              </div>
+            
+          </div>
         </div>
       </div>
     </div>

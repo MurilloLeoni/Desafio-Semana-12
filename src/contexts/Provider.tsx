@@ -29,7 +29,7 @@ function Provider({ children }: ProviderProps) {
     clearCart,
     selectedProduct,
     setSelectedProduct,
-    updateQuantity
+    updateQuantity,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

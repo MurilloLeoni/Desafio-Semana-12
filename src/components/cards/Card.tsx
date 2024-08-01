@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { Product } from "../../types/typeProduct";
 import AppContext from "../../contexts/AppContext";
 
+interface CardProps extends Product {
+  onClick?: () => void;
+}
+
 const Card = ({
   id,
   title,
@@ -13,7 +17,8 @@ const Card = ({
   images,
   new: isNew,
   slug,
-}: Product) => {
+  onClick,
+}: CardProps) => {
   const context = useContext(AppContext);
   const navigate = useNavigate();
 
@@ -29,7 +34,11 @@ const Card = ({
   };
 
   const handleCardClick = () => {
-    navigate(`/products/${slug}`);
+    if (onClick) {
+      onClick();
+    } else {
+      navigate(`/products/${slug}`);
+    }
   };
 
   const formattedDiscount = isNew ? "New" : `${discountPercentage * 100}%`;
