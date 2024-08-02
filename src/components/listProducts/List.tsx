@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from "react";
+import { useLocation } from "react-router-dom";
 import Card from "../../components/cards/Card";
 import Pagination from "../Pagination";
 import Filter from "../filter/Filter";
-import { useLocation } from "react-router-dom";
 import { fetchProducts } from "../../utils/fetchedProducts";
 import AppContext from "../../contexts/AppContext";
 
@@ -17,6 +17,7 @@ const List = () => {
   const [offset, setOffset] = useState(0);
   const [currentDisplay, setCurrentDisplay] = useState(16);
   const [sortOrder, setSortOrder] = useState<string>("");
+  const [filterCategory, setFilterCategory] = useState<string>("");
   const [filterRating, setFilterRating] = useState<number | null>(null);
   const [filterPrice, setFilterPrice] = useState<number | null>(null);
   const location = useLocation();
@@ -30,13 +31,25 @@ const List = () => {
     getProducts();
   }, [setProducts]);
 
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const category = params.get("category");
+    if (category) {
+      setFilterCategory(category);
+    }
+  }, [location.search]);
+
   const start = offset + 1;
   const end = Math.min(offset + currentDisplay, products.length);
 
-  // const filteredProducts = products.slice(offset, offset + currentDisplay);
-
   const filterAndSortProducts = () => {
     let filtered = [...products];
+    if (filterCategory) {
+      filtered = filtered.filter(
+        (product) =>
+          product.category.toLowerCase() === filterCategory.toLowerCase()
+      );
+    }
     if (filterRating !== null) {
       filtered = filtered.filter((product) => product.rating >= filterRating);
     }
@@ -44,12 +57,18 @@ const List = () => {
       filtered = filtered.filter((product) => product.salePrice <= filterPrice);
     }
 
-    if (sortOrder === "alfabetico") {
+    if (sortOrder === "alfabetico_asc") {
       filtered.sort((a, b) => a.title.localeCompare(b.title));
-    } else if (sortOrder === "rating") {
+    } else if (sortOrder === "alfabetico_desc") {
+      filtered.sort((a, b) => b.title.localeCompare(a.title));
+    } else if (sortOrder === "rating_asc") {
+      filtered.sort((a, b) => a.rating - b.rating);
+    } else if (sortOrder === "rating_desc") {
       filtered.sort((a, b) => b.rating - a.rating);
-    } else if (sortOrder === "preco") {
+    } else if (sortOrder === "preco_asc") {
       filtered.sort((a, b) => a.salePrice - b.salePrice);
+    } else if (sortOrder === "preco_desc") {
+      filtered.sort((a, b) => b.salePrice - a.salePrice);
     }
 
     return filtered.slice(offset, offset + currentDisplay);
@@ -70,6 +89,7 @@ const List = () => {
           start={start}
           end={end}
           setSortOrder={setSortOrder}
+          setFilterCategory={setFilterCategory}
           setFilterRating={setFilterRating}
           setFilterPrice={setFilterPrice}
         />

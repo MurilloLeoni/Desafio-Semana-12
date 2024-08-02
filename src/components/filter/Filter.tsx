@@ -5,6 +5,7 @@ type FilterProps = {
   start: number;
   end: number;
   setSortOrder: (order: string) => void;
+  setFilterCategory: (category: string) => void;
   setFilterRating: (rating: number | null) => void;
   setFilterPrice: (price: number | null) => void;
 };
@@ -16,6 +17,7 @@ const Filter = ({
   start,
   end,
   setSortOrder,
+  setFilterCategory,
 }: FilterProps) => {
   return (
     <div className="bg-#FFF3E3 w-screen px-24 py-9 flex justify-between font-normal -mt-2">
@@ -40,7 +42,7 @@ const Filter = ({
         />
         <img className="" src="/src/assets/icons/Line.png" alt="|" />
         <p className="text-base">
-          Showing {start}-{end} of {totalProducts + 1} results
+          Showing {start}-{end} of {totalProducts} results
         </p>
       </div>
       <div className="flex text-xl">
@@ -61,12 +63,28 @@ const Filter = ({
           <p>Sort by</p>
           <select
             className="ml-4 w-48 h-14 text-center"
-            onChange={(e) => setSortOrder(e.target.value)}
+            onChange={(e) => {
+              const value = e.target.value;
+              if (value.startsWith('categoria_')) {
+                setFilterCategory(value.replace('categoria_', ''));
+              } else {
+                setSortOrder(value);
+              }
+            }}
           >
             <option value="default">Default</option>
-            <option value="alfabetico">Alphabetical</option>
-            <option value="rating">Rating</option>
-            <option value="preco">Price</option>
+            <option value="alfabetico_asc">Alphabetical (A-Z)</option>
+            <option value="alfabetico_desc">Alphabetical (Z-A)</option>
+            <option value="rating_asc">Rating (Low to High)</option>
+            <option value="rating_desc">Rating (High to Low)</option>
+            <option value="preco_asc">Price (Low to High)</option>
+            <option value="preco_desc">Price (High to Low)</option>
+            <option value="categoria_Sofás">Sofás</option>
+            <option value="categoria_Escrivaninhas">Escrivaninhas</option>
+            <option value="categoria_Cadeiras">Cadeiras</option>
+            <option value="categoria_Mesas">Mesas</option>
+            <option value="categoria_Armarios">Armários</option>
+            <option value="categoria_Racks">Racks</option>
           </select>
         </div>
       </div>
