@@ -1,16 +1,14 @@
-import Bannerpath from '../../components/banner-path/Bannerpath'
-import Carrossel from '../../components/Carrossel'
-import List from '../../components/listProducts/List'
-import OurProducts from '../home/OurProducts'
+import Bannerpath from "../../components/banner-path/Bannerpath";
+import List from "../../components/listProducts/List";
 
 const Shop = () => {
   return (
     <div>
       {/* <Carrossel/> */}
-      <Bannerpath/>
-      <List/>
+      <Bannerpath />
+      <List />
     </div>
-  )
-}
+  );
+};
 
-export default Shop
+export default Shop;

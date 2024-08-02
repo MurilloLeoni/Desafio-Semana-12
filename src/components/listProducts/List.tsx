@@ -16,6 +16,9 @@ const List = () => {
   const { products, setProducts } = context;
   const [offset, setOffset] = useState(0);
   const [currentDisplay, setCurrentDisplay] = useState(16);
+  const [sortOrder, setSortOrder] = useState<string>("");
+  const [filterRating, setFilterRating] = useState<number | null>(null);
+  const [filterPrice, setFilterPrice] = useState<number | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -30,7 +33,29 @@ const List = () => {
   const start = offset + 1;
   const end = Math.min(offset + currentDisplay, products.length);
 
-  const filteredProducts = products.slice(offset, offset + currentDisplay);
+  // const filteredProducts = products.slice(offset, offset + currentDisplay);
+
+  const filterAndSortProducts = () => {
+    let filtered = [...products];
+    if (filterRating !== null) {
+      filtered = filtered.filter((product) => product.rating >= filterRating);
+    }
+    if (filterPrice !== null) {
+      filtered = filtered.filter((product) => product.salePrice <= filterPrice);
+    }
+
+    if (sortOrder === "alfabetico") {
+      filtered.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (sortOrder === "rating") {
+      filtered.sort((a, b) => b.rating - a.rating);
+    } else if (sortOrder === "preco") {
+      filtered.sort((a, b) => a.salePrice - b.salePrice);
+    }
+
+    return filtered.slice(offset, offset + currentDisplay);
+  };
+
+  const filteredProducts = filterAndSortProducts();
 
   const ShowFilterAndPagination =
     location.pathname !== "/" && location.pathname !== "/nome-do-produto";
@@ -44,6 +69,9 @@ const List = () => {
           setCurrentDisplay={setCurrentDisplay}
           start={start}
           end={end}
+          setSortOrder={setSortOrder}
+          setFilterRating={setFilterRating}
+          setFilterPrice={setFilterPrice}
         />
       )}
       <div className="px-4 md:px-24 md:mt-14">
