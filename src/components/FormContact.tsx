@@ -1,4 +1,3 @@
-import React from 'react'
 import { useFormsContact } from '../hooks/useFormsContact';
 import { FormSchemaContact } from '../schemas/formSchemaContact';
 

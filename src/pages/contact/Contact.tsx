@@ -1,4 +1,3 @@
-import React from "react";
 import Bannerpath from "../../components/banner-path/Bannerpath";
 import Info from "./Info";
 import FormContact from "../../components/FormContact";

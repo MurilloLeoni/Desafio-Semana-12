@@ -1,4 +1,3 @@
-import React from 'react'
 import Form from '../../components/Form'
 import Bannerpath from '../../components/banner-path/Bannerpath'
 
