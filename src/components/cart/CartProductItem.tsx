@@ -45,7 +45,7 @@ const CartProductItem = ({
       <img
         onClick={handleRemoveproduct}
         className="w-7 h-7 cursor-pointer"
-        src="/src/assets/icons/Icon-trash.png"
+        src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-trash.png"
         alt="Trash"
       />
     </div>

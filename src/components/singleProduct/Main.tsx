@@ -210,21 +210,21 @@ const Main = ({
                 <a href="https://www.facebook.com" target="_blank">
                 <img
                   className="w-6 h-6"
-                  src="/src/assets/icons/Icon-facebook2.png"
+                  src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-facebook2.png"
                   alt="Facebook"
                 />
                 </a>
                 <a href=" https://www.linkedin.com" target="_blank">
                 <img
                   className="w-6 h-6"
-                  src="/src/assets/icons/Icon-linkedin2.png"
+                  src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-linkedin2.png"
                   alt="Linkedin"
                 />
                 </a>
                 <a href="https://twitter.com" target="_blank">
                 <img
                   className="w-7 h-7"
-                  src="/src/assets/icons/Icon-twitter2.png"
+                  src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-twitter2.png"
                   alt="Twitter"
                 />
                 </a>

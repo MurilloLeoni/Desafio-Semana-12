@@ -25,22 +25,22 @@ const Filter = ({
         <div className="flex">
           <img
             className="w-6 h-6 mr-2"
-            src="/src/assets/icons/Icon-filter.png"
+            src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-filter.png"
             alt="Filter"
           />
           <p className="text-xl">Filter</p>
         </div>
         <img
           className="w-6 h-6"
-          src="/src/assets/icons/Icon-grid.png"
+          src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-grid.png"
           alt="Grid"
         />
         <img
           className="w-6 h-6"
-          src="/src/assets/icons/Icon-list.png"
+          src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-list.png"
           alt="List"
         />
-        <img className="" src="/src/assets/icons/Line.png" alt="|" />
+        <img className="" src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Line.png" alt="|" />
         <p className="text-base">
           Showing {start}-{end} of {totalProducts} results
         </p>

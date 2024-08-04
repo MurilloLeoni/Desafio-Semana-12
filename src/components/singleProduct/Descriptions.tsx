@@ -32,8 +32,8 @@ const Descriptions = ({ description }: Product) => {
         {activeTab === "short" ? description.short : description.long}
       </p>
       <div className="flex justify-center">
-        <img src="/src/assets/imgs/Image-description.png" alt="Image1" />
-        <img src="/src/assets/imgs/Image-description.png" alt="Image2" />
+        <img src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/imgs/Image-description.png" alt="Image1" />
+        <img src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/imgs/Image-description.png" alt="Image2" />
       </div>
     </div>
   );

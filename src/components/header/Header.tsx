@@ -39,7 +39,7 @@ const Header = () => {
         <img
           onClick={() => navigate("/")}
           className="w-44 h-10 cursor-pointer"
-          src="/src/assets/imgs/Logo-Furniro.png"
+          src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/imgs/Logo-Furniro.png"
           alt="Logo"
         />
         <nav className="flex justify-center items-center md:mx-auto gap-5 md:justify-between md:w-[430px] text-base font-medium leading-6 cursor-pointer">
@@ -52,14 +52,14 @@ const Header = () => {
           <img
             onClick={toggleDropdown}
             className="w-6 h-6"
-            src="/src/assets/icons/Icon-user.png"
+            src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-user.png"
             alt="User"
           />
           <div className="relative">
           <img
             onClick={toggleCartOverlay}
             className="w-6 h-6"
-            src="/src/assets/icons/Icon-cart.png"
+            src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-cart.png"
             alt="Cart"
           />
           {cartItems.length > 0 && (<span className="absolute text-white bg-red-600 w-5 h-5 bottom-4 right-4 rounded-full flex items-center justify-center ">

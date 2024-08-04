@@ -25,13 +25,13 @@ const Carrossel = () => {
       aria-label="My Favorite Images"
     >
       <SplideSlide>
-        <img src="/src/assets/imgs/Dining-home.png" alt="Image 1"/>
+        <img src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/imgs/Dining-home.png" alt="Image 1"/>
       </SplideSlide>
       <SplideSlide>
-        <img src="/src/assets/imgs/Living-home.png" alt="Image 2"/>
+        <img src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/imgs/Living-home.png" alt="Image 2"/>
       </SplideSlide>
       <SplideSlide>
-        <img src="/src/assets/imgs/Bedroom-home.png" alt="Image 3"/>
+        <img src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/imgs/Bedroom-home.png" alt="Image 3"/>
       </SplideSlide>
     </Splide>
     </div>

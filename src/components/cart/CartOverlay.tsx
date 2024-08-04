@@ -71,7 +71,7 @@ const CartOverlay: React.FC<{ isVisible: boolean; onClose: () => void }> = ({
           <img
             onClick={clearCart}
             className="-mt-4 cursor-pointer"
-            src="/src/assets/icons/Icon-closeCart.png"
+            src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-closeCart.png"
             alt="CloseCart"
           />
         </div>

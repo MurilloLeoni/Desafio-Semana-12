@@ -6,7 +6,7 @@ const Info = () => {
       <div className="flex">
         <img
           className="w-6 h-7"
-          src="/src/assets/icons/Icon-location.png"
+          src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-location.png"
           alt="Icon"
         />
         <div className="flex flex-col ml-7">
@@ -23,7 +23,7 @@ const Info = () => {
       <div className="flex">
         <img
           className="w-6 h-7 object-cover"
-          src="/src/assets/icons/Icon-phone.png"
+          src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-phone.png"
           alt="Icon"
         />
         <div className="flex flex-col ml-7">
@@ -38,7 +38,7 @@ const Info = () => {
       <div className="flex">
         <img
           className="w-6 h-7"
-          src="/src/assets/icons/Icon-clock.png"
+          src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-clock.png"
           alt="Icon"
         />
         <div className="flex flex-col ml-7">

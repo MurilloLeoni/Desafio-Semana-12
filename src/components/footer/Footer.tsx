@@ -21,16 +21,16 @@ const Footer = () => {
             </div>
             <div className='flex justify-between md:w-[184px] items-center md:-ml-4'>
                 <a href="https://www.facebook.com" target="_blank">
-                    <img src="/src/assets/icons/Icon-facebook.png" alt="Facebook" />
+                    <img src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-facebook.png" alt="Facebook" />
                 </a>
                 <a href="https://www.instagram.com" target="_blank">
-                    <img src="/src/assets/icons/Icon-instagram.png" alt="Instagram" />
+                    <img src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-instagram.png" alt="Instagram" />
                 </a>
                 <a href="https://twitter.com" target="_blank">
-                    <img src="/src/assets/icons/Icon-twitter.png" alt="Twitter" />
+                    <img src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-twitter.png" alt="Twitter" />
                 </a>
                 <a href="https://www.linkedin.com" target="_blank">
-                    <img src="/src/assets/icons/Icon-linkedin.png" alt="LinkedIn" />
+                    <img src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-linkedin.png" alt="LinkedIn" />
                 </a>
             </div>
         </div>

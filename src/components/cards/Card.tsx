@@ -81,15 +81,15 @@ const Card = ({
         </button>
         <div className="flex gap-4 text-white">
           <div className="flex items-center cursor-pointer">
-            <img src="/src/assets/icons/Icon-share.png" alt="Share" />
+            <img src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-share.png" alt="Share" />
             <p className="ml-1">Share</p>
           </div>
           <div className="flex items-center cursor-pointer">
-            <img src="/src/assets/icons/Icon-compare.png" alt="Compare" />
+            <img src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-compare.png" alt="Compare" />
             <p className="ml-1">Compare</p>
           </div>
           <div className="flex items-center cursor-pointer">
-            <img src="/src/assets/icons/Icon-like.png" alt="Like" />
+            <img src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-like.png" alt="Like" />
             <p className="ml-1">Like</p>
           </div>
         </div>
