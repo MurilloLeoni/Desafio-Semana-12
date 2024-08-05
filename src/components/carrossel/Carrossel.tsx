@@ -1,5 +1,4 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-// Importa o tema padrão e outras opções de temas
 import "@splidejs/react-splide/css";
 import "@splidejs/react-splide/css/skyblue";
 import "@splidejs/react-splide/css/sea-green";
@@ -16,10 +15,21 @@ const Carrossel = () => {
           width: "100%",
           height: "100%",
           perMove: 1,
-          perPage: 2.2,
+          perPage: 2,
           pagination: true,
           arrows: true,
           focus: "center",
+          breakpoints: {
+            1200: {
+              perPage: 2.2,
+            },
+            900: {
+              perPage: 1.5,
+            },
+            600: {
+              perPage: 1,
+            },
+          },
         }}
         aria-label="My Favorite Images"
       >
