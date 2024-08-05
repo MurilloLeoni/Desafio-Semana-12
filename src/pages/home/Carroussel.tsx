@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import Carrossel from "../../components/carrossel/Carrossel"
+// import Carrossel from "../../components/carrossel/Carrossel"
 
 const Carroussel = () => {
 
@@ -11,7 +11,7 @@ const Carroussel = () => {
         <p className='font-medium text-base text-#616161 mb-8'>Our designer already made a lot of beautiful prototipe of rooms that inspire you</p>
         <button className='bg-#B88E2F px-9 py-3 text-white font-semibold' onClick={() => navigate('/shop')}>Explore More</button>
         </div>
-        <Carrossel />
+        {/* <Carrossel /> */}
     </div>
   )
 }
