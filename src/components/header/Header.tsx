@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { User, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import CartOverlay from "../cart/CartOverlay";
-import UserDropdown from "../UserDropdown";
+import UserDropdown from "../dropdownUser/UserDropdown";
 import AppContext from "../../contexts/AppContext";
 
 const Header = () => {
@@ -56,23 +56,21 @@ const Header = () => {
             alt="User"
           />
           <div className="relative">
-          <img
-            onClick={toggleCartOverlay}
-            className="w-6 h-6"
-            src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-cart.png"
-            alt="Cart"
-          />
-          {cartItems.length > 0 && (<span className="absolute text-white bg-red-600 w-5 h-5 bottom-4 right-4 rounded-full flex items-center justify-center ">
-            {cartItems.length}
-          </span>
-          )}
+            <img
+              onClick={toggleCartOverlay}
+              className="w-6 h-6"
+              src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-cart.png"
+              alt="Cart"
+            />
+            {cartItems.length > 0 && (
+              <span className="absolute text-white bg-red-600 w-5 h-5 bottom-4 right-4 rounded-full flex items-center justify-center ">
+                {cartItems.length}
+              </span>
+            )}
           </div>
         </div>
       </header>
-      <UserDropdown
-        user={user}
-        isVisible={isDropdownOpen}
-      />
+      <UserDropdown user={user} isVisible={isDropdownOpen} />
       <CartOverlay
         isVisible={isCartOverlayVisible}
         onClose={() => setIsCartOverlayVisible(false)}

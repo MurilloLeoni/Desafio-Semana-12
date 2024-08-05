@@ -1,5 +1,5 @@
-import Form from '../../components/Form'
 import Bannerpath from '../../components/banner-path/Bannerpath'
+import Form from '../../components/forms/Form'
 
 const Checkout = () => {
   return (

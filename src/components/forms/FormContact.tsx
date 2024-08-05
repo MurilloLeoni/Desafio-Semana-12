@@ -1,16 +1,16 @@
-import { useFormsContact } from '../hooks/useFormsContact';
-import { FormSchemaContact } from '../schemas/formSchemaContact';
+import { useFormsContact } from "../../hooks/useFormsContact";
+import { FormSchemaContact } from "../../schemas/formSchemaContact";
 
 const FormContact = () => {
-    const { register, handleSubmit, errors } = useFormsContact();
+  const { register, handleSubmit, errors } = useFormsContact();
 
-    const onSubmit = (data: FormSchemaContact) => {
-        console.log(data);
-      };
+  const onSubmit = (data: FormSchemaContact) => {
+    console.log(data);
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-[530px] px-12 mb-16">
-    <div className='flex flex-col gap-9 mt-8 md:mt-0'>
+      <div className="flex flex-col gap-9 mt-8 md:mt-0">
         <div className="flex flex-col">
           <label className="font-medium mb-6" htmlFor="name">
             Your name
@@ -50,7 +50,9 @@ const FormContact = () => {
             {...register("subject")}
           />
           {errors.subject && (
-            <span className="text-red-500 italic">{errors.subject.message}</span>
+            <span className="text-red-500 italic">
+              {errors.subject.message}
+            </span>
           )}
         </div>
         <div className="flex flex-col">
@@ -64,15 +66,20 @@ const FormContact = () => {
             {...register("message")}
           />
           {errors.message && (
-            <span className="text-red-500 italic">{errors.message.message}</span>
+            <span className="text-red-500 italic">
+              {errors.message.message}
+            </span>
           )}
         </div>
-    </div>
-    <button className="px-24 py-4 bg-#B88E2F rounded-md text-white mt-12" type="submit">
-            Submit
-          </button>
+      </div>
+      <button
+        className="px-24 py-4 bg-#B88E2F rounded-md text-white mt-12"
+        type="submit"
+      >
+        Submit
+      </button>
     </form>
-  )
-}
+  );
+};
 
-export default FormContact
+export default FormContact;

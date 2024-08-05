@@ -1,17 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { signOut, User } from "firebase/auth";
-import { auth } from "./firebase";
+import { auth } from "../firebase";
 
 interface UserDropdownProps {
   user: User | null;
   isVisible: boolean;
 }
 
-const UserDropdown: React.FC<UserDropdownProps> = ({
-  user,
-  isVisible
-}) => {
+const UserDropdown: React.FC<UserDropdownProps> = ({ user, isVisible }) => {
   const navigate = useNavigate();
 
   const handleLogout = async (): Promise<void> => {

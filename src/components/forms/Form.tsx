@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
-import { useForms } from "../hooks/useForms";
-import { FormSchema } from "../schemas/formSchema";
-import AppContext from "../contexts/AppContext";
+import { useForms } from "../../hooks/useForms";
+import AppContext from "../../contexts/AppContext";
+import { FormSchema } from "../../schemas/formSchema";
 
 const Form = () => {
   const { register, handleSubmit, errors, setValue } = useForms();
@@ -15,10 +15,12 @@ const Form = () => {
   }
   const { cartItems } = context;
 
-  const total = cartItems.reduce((total, item) => {
-    const itemTotal = item.salePrice * item.quantity;
-    return total + itemTotal;
-  }, 0);
+  const total = cartItems
+    .reduce((total, item) => {
+      const itemTotal = item.salePrice * item.quantity;
+      return total + itemTotal;
+    }, 0)
+    .toFixed(2);
 
   const handlePaymentMethodChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -251,7 +253,7 @@ const Form = () => {
                   <span className="text-black"> x {item.quantity}</span>
                 </p>
                 <p className="text-nowrap text-black">
-                  Rp. {item.salePrice * item.quantity}
+                  Rp. {(item.salePrice * item.quantity).toFixed(2)}
                 </p>
               </div>
             ))}

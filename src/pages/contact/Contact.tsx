@@ -1,6 +1,6 @@
 import Bannerpath from "../../components/banner-path/Bannerpath";
 import Info from "./Info";
-import FormContact from "../../components/FormContact";
+import FormContact from "../../components/forms/FormContact";
 
 const Contact = () => {
   return (

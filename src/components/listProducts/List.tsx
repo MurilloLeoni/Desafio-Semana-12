@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import Card from "../../components/cards/Card";
-import Pagination from "../Pagination";
+import Pagination from "../pagination/Pagination";
 import Filter from "../filter/Filter";
 import { fetchProducts } from "../../utils/fetchedProducts";
 import AppContext from "../../contexts/AppContext";

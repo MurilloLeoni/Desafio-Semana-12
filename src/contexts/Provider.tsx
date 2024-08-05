@@ -14,10 +14,8 @@ function Provider({ children }: ProviderProps) {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const updateQuantity = (id: number, quantity: number) => {
-    setCartItems(prevItems =>
-      prevItems.map(item =>
-        item.id === id ? { ...item, quantity } : item
-      )
+    setCartItems((prevItems) =>
+      prevItems.map((item) => (item.id === id ? { ...item, quantity } : item))
     );
   };
 

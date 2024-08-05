@@ -6,7 +6,7 @@ export const formSchema = z.object({
   companyname: z.string().optional(),
   zipcode: z.string().regex(/^[0-9]{5}-?[0-9]{3}$/, { message: 'CEP inválido' }),
   country: z.string().min(2, { message: 'Country is required' }).regex(/^[a-zA-Z\s]+$/, { message: 'Pais inválido' }),
-  street: z.string().regex(/^[\w\W]/, { message: 'Rua inválida. Deve ser no formato "Rua Nome, Número"' }),
+  street: z.string().regex(/^[\w\W]/, { message: 'Rua inválida. Deve ser no formato "Rua Nome"' }),
   city: z.string().min(3, { message: 'City is required' }).regex(/^[a-zA-ZÀ-ÖØ-Ýà-öø-ÿ\s]+$/, { message: 'Cidadde inválido' }),
   province: z.string().min(3, { message: 'Province is required' }).regex(/^[a-zA-Z\s]+$/, { message: 'Bairro inválido' }),
   addonaddress: z.string().min(3, { message: 'Add-on address is required' }),
