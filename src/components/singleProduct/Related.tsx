@@ -43,22 +43,24 @@ const Related = () => {
 
   return (
     <>
-      <h1 className="text-center font-medium text-4xl mt-14">
+      <h1 className="text-center font-medium text-2xl md:text-4xl mt-14">
         Related Products
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 md:px-24 md:mt-14">
+      <div className="grid grid-cols-1 gap-4 px-4 md:px-24 md:grid-cols-2 lg:grid-cols-4 md:gap-8 md:mt-14">
         {displayedProducts.map((product) => (
-          <Card
-            key={product.id}
-            {...product}
-            onClick={() => handleProductClick(product)}
-          />
+          <div className="flex justify-center">
+            <Card
+              key={product.id}
+              {...product}
+              onClick={() => handleProductClick(product)}
+            />
+          </div>
         ))}
       </div>
       {visibleProducts < relatedProducts.length && (
         <div className="flex justify-center my-8">
           <button
-            className="border border-#B88E2F text-#B88E2F font-semibold py-3 px-20"
+            className="border border-#B88E2F text-#B88E2F font-semibold py-2 px-8 md:py-3 md:px-20"
             onClick={handleShowMore}
           >
             Show More

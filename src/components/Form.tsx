@@ -46,17 +46,17 @@ const Form = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className=" flex mx-auto gap-28 pb-32"
+      className="grid grid-cols-1 md:flex md:mx-auto gap-28 pb-32"
     >
       <div className="flex flex-col gap-9 items-start">
         <h1 className="font-semibold text-4xl">Billing details</h1>
-        <div className="flex gap-8">
-          <div className="flex flex-col">
+        <div className="flex flex-col gap-8 md:flex-row md:gap-8">
+          <div className="flex flex-col w-full md:w-auto">
             <label className="font-medium mb-6" htmlFor="name">
               First Name
             </label>
             <input
-              className="border border-#9F9F9F rounded-[10px] pr-8 pl-2 py-6 w-full"
+              className="border border-#9F9F9F rounded-[10px] pr-8 pl-2 py-6 w-full md:w-auto"
               type="text"
               id="name"
               {...register("name")}
@@ -65,12 +65,12 @@ const Form = () => {
               <span className="text-red-500 italic">{errors.name.message}</span>
             )}
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col w-full md:w-auto">
             <label className="font-medium mb-6" htmlFor="lastname">
               Last Name
             </label>
             <input
-              className="border border-#9F9F9F rounded-[10px] pr-8 pl-2 py-6"
+              className="border border-#9F9F9F rounded-[10px] pr-8 pl-2 py-6 w-full md:w-auto"
               type="text"
               id="lastname"
               {...register("lastname")}
@@ -82,12 +82,13 @@ const Form = () => {
             )}
           </div>
         </div>
-        <div className="flex flex-col">
+
+        <div className="flex flex-col w-full md:w-auto">
           <label className="font-medium mb-6" htmlFor="companyname">
             Company Name (Optional)
           </label>
           <input
-            className="border border-#9F9F9F rounded-[10px] pr-80 pl-2 py-6"
+            className="border border-#9F9F9F rounded-[10px] pr-8 pl-2 py-6 w-full md:w-auto"
             type="text"
             id="companyname"
             {...register("companyname")}
@@ -98,12 +99,13 @@ const Form = () => {
             </span>
           )}
         </div>
-        <div className="flex flex-col">
+
+        <div className="flex flex-col w-full md:w-auto">
           <label className="font-medium mb-6" htmlFor="zipcode">
             ZIP Code
           </label>
           <input
-            className="border border-#9F9F9F rounded-[10px] pr-80 pl-2 py-6"
+            className="border border-#9F9F9F rounded-[10px] pr-8 pl-2 py-6 w-full md:w-auto"
             type="text"
             id="zipcode"
             {...register("zipcode")}
@@ -115,12 +117,13 @@ const Form = () => {
             </span>
           )}
         </div>
-        <div className="flex flex-col">
+
+        <div className="flex flex-col w-full md:w-auto">
           <label className="font-medium mb-6" htmlFor="country">
             Country / Region
           </label>
           <input
-            className="border border-#9F9F9F rounded-[10px] pr-80 pl-2 py-6"
+            className="border border-#9F9F9F rounded-[10px] pr-8 pl-2 py-6 w-full md:w-auto"
             type="text"
             id="country"
             {...register("country")}
@@ -131,12 +134,13 @@ const Form = () => {
             </span>
           )}
         </div>
-        <div className="flex flex-col">
+
+        <div className="flex flex-col w-full md:w-auto">
           <label className="font-medium mb-6" htmlFor="street">
             Street Address
           </label>
           <input
-            className="border border-#9F9F9F rounded-[10px] pr-80 pl-2 py-6"
+            className="border border-#9F9F9F rounded-[10px] pr-8 pl-2 py-6 w-full md:w-auto"
             type="text"
             id="street"
             {...register("street")}
@@ -145,12 +149,13 @@ const Form = () => {
             <span className="text-red-500 italic">{errors.street.message}</span>
           )}
         </div>
-        <div className="flex flex-col">
+
+        <div className="flex flex-col w-full md:w-auto">
           <label className="font-medium mb-6" htmlFor="city">
             Town / City
           </label>
           <input
-            className="border border-#9F9F9F rounded-[10px] pr-80 pl-2 py-6"
+            className="border border-#9F9F9F rounded-[10px] pr-8 pl-2 py-6 w-full md:w-auto"
             type="text"
             id="city"
             {...register("city")}
@@ -159,12 +164,13 @@ const Form = () => {
             <span className="text-red-500 italic">{errors.city.message}</span>
           )}
         </div>
-        <div className="flex flex-col">
+
+        <div className="flex flex-col w-full md:w-auto">
           <label className="font-medium mb-6" htmlFor="province">
             Province
           </label>
           <input
-            className="border border-#9F9F9F rounded-[10px] pr-80 pl-2 py-6"
+            className="border border-#9F9F9F rounded-[10px] pr-8 pl-2 py-6 w-full md:w-auto"
             type="text"
             id="province"
             {...register("province")}
@@ -175,12 +181,13 @@ const Form = () => {
             </span>
           )}
         </div>
-        <div className="flex flex-col">
+
+        <div className="flex flex-col w-full md:w-auto">
           <label className="font-medium mb-6" htmlFor="addonaddress">
             Add-on-address
           </label>
           <input
-            className="border border-#9F9F9F rounded-[10px] pr-80 pl-2 py-6"
+            className="border border-#9F9F9F rounded-[10px] pr-8 pl-2 py-6 w-full md:w-auto"
             type="text"
             id="addonaddress"
             {...register("addonaddress")}
@@ -191,12 +198,13 @@ const Form = () => {
             </span>
           )}
         </div>
-        <div className="flex flex-col">
+
+        <div className="flex flex-col w-full md:w-auto">
           <label className="font-medium mb-6" htmlFor="email">
             Email Address
           </label>
           <input
-            className="border border-#9F9F9F rounded-[10px] pr-80 pl-2 py-6"
+            className="border border-#9F9F9F rounded-[10px] pr-8 pl-2 py-6 w-full md:w-auto"
             type="text"
             id="email"
             {...register("email")}
@@ -205,9 +213,10 @@ const Form = () => {
             <span className="text-red-500 italic">{errors.email.message}</span>
           )}
         </div>
-        <div className="flex flex-col">
+
+        <div className="flex flex-col w-full md:w-auto">
           <input
-            className="border border-#9F9F9F rounded-[10px] pr-80 pl-2 py-6"
+            className="border border-#9F9F9F rounded-[10px] pr-8 pl-2 py-6 w-full md:w-auto"
             type="text"
             id="message"
             {...register("message")}
@@ -220,12 +229,15 @@ const Form = () => {
           )}
         </div>
       </div>
-      <div>
-        <div className="mt-12 mb-8 w-[540px]">
-          <div className="flex flex-col gap-4">
-            <div className="flex justify-between">
-              <h1 className="font-medium text-2xl">Product</h1>
-              <h1 className="font-medium text-2xl">Subtotal</h1>
+
+      <div className="px-4 md:px-0">
+        <div className="mt-12 mb-8 md:w-[540px]">
+          <div className="md:flex md:flex-col md:gap-4">
+            <div className="md:flex md:justify-between">
+              <h1 className="text-center md:text-left font-medium text-2xl mb-4 md:mb-0">
+                Product
+              </h1>
+              <h1 className="hidden md:block font-medium text-2xl">Subtotal</h1>
             </div>
             <p className="text-#B88E2F font-bold text-2xl -ml-10"></p>
             {cartItems.map((item) => (
@@ -270,7 +282,7 @@ const Form = () => {
               />
               Direct Bank Transfer
             </label>
-            <p className="w-[570px] font-light text-justify text-#9F9F9F">
+            <p className="md:w-[570px] font-light text-justify text-#9F9F9F">
               Make your payment directly into our bank account. Please use your
               Order ID as the payment reference. Your order will not be shipped
               until the funds have cleared in our account.
@@ -312,7 +324,7 @@ const Form = () => {
               {errors.paymentMethod.message}
             </span>
           )}
-          <p className="font-light text-justify w-[570px]">
+          <p className="font-light text-justify md:w-[570px]">
             Your personal data will be used to support your experience
             throughout this website, to manage access to your account, and for
             other purposes described in our{" "}

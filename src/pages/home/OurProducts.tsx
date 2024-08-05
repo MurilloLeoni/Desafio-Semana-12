@@ -10,7 +10,7 @@ const OurProducts = () => {
 
   return (
     <div>
-      <h1 className="text-center pb-8 pt-10 font-bold text-[40px] leading-[48px]">
+      <h1 className="text-center pb-8 pt-10 font-bold text-3xl md:text-[40px] leading-[48px]">
         Our Products
       </h1>
       <List />

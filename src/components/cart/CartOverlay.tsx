@@ -43,7 +43,6 @@ const CartOverlay: React.FC<{ isVisible: boolean; onClose: () => void }> = ({
     });
   }, []);
 
-
   const handleCheckout = () => {
     if (user && cartItems.length > 0) {
       navigate("/checkout");
@@ -57,51 +56,51 @@ const CartOverlay: React.FC<{ isVisible: boolean; onClose: () => void }> = ({
 
   return (
     <div
-      className={` fixed inset-0 bg-black bg-opacity-50 z-50 ${
+      className={`fixed inset-0 bg-black bg-opacity-50 z-50 ${
         isVisible ? "block" : "hidden"
       }`}
       onClick={onClose}
     >
       <div
-        className="absolute top-0 right-0 bg-white py-7 pr-10 pl-7 shadow-md w-[420px]"
+        className="absolute top-0 right-0 bg-white py-5 px-5 md:py-7 md:px-7 shadow-md w-full md:w-[420px] h-full md:h-auto max-w-md md:max-w-lg overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-bold mb-6">Shopping Cart</h2>
+          <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Shopping Cart</h2>
           <img
             onClick={clearCart}
-            className="-mt-4 cursor-pointer"
+            className="w-6 h-6 cursor-pointer"
             src="https://murilloleoni-desafio3.s3.us-east-2.amazonaws.com/assets/icons/Icon-closeCart.png"
             alt="CloseCart"
           />
         </div>
         <hr />
-        <div className="flex flex-col flex-grow overflow-auto h-[400px]">
+        <div className="flex flex-col flex-grow overflow-auto max-h-[300px] md:max-h-[400px]">
           {cartItems.map((cartItem) => (
             <CartItem key={cartItem.id} {...cartItem} />
           ))}
         </div>
-        <div className="mb-6 mt-10">
-          <h3 className="text-xl font-semibold flex justify-between">
+        <div className="mb-4 md:mb-6 mt-6 md:mt-10">
+          <h3 className="text-lg md:text-xl font-semibold flex justify-between">
             Subtotal
-            <span className="font-semibold text-#B88E2F">Rp. {totalPrice}</span>
+            <span className="font-semibold text-[#B88E2F]">Rp. {totalPrice}</span>
           </h3>
         </div>
         <hr />
-        <div className="flex justify-between mt-6 gap-3 text-xs">
+        <div className="flex flex-col md:flex-row justify-between mt-4 md:mt-6 gap-4 md:gap-3 text-sm md:text-xs">
           <button
             onClick={() => navigate("/cart")}
-            className="px-7 py-2 rounded-[50px] border border-black"
+            className="px-5 py-2 rounded-full border border-black"
           >
             Cart
           </button>
           <button
             onClick={handleCheckout}
-            className="px-7 py-2 rounded-[50px] border border-black"
+            className="px-5 py-2 rounded-full border border-black"
           >
             Checkout
           </button>
-          <button className="px-7 py-2 rounded-[50px] border border-black">
+          <button className="px-5 py-2 rounded-full border border-black">
             Comparison
           </button>
         </div>

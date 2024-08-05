@@ -87,6 +87,18 @@ const Register: React.FC = () => {
           >
             Registrar
           </button>
+          <div className="text-center mt-4">
+            <p className="text-gray-700">
+              Já possui uma conta?{" "}
+              <a
+                onClick={() => navigate("/login")}
+                className="text-blue-700 hover:underline cursor-pointer"
+              >
+                {" "}
+                Entre
+              </a>
+            </p>
+          </div>
         </form>
       </div>
     </div>

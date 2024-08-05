@@ -76,8 +76,7 @@ const List = () => {
 
   const filteredProducts = filterAndSortProducts();
 
-  const ShowFilterAndPagination =
-    location.pathname !== "/" && location.pathname !== "/nome-do-produto";
+  const ShowFilterAndPagination = location.pathname !== "/";
 
   return (
     <>
@@ -95,9 +94,11 @@ const List = () => {
         />
       )}
       <div className="px-4 md:px-24 md:mt-14">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
           {filteredProducts.map((product) => (
-            <Card key={product.id} {...product} />
+            <div key={product.id} className="flex justify-center">
+              <Card {...product} />
+            </div>
           ))}
         </div>
         {ShowFilterAndPagination && (

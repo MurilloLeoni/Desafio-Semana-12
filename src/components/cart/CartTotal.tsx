@@ -36,23 +36,23 @@ const CartTotal = ({ subtotal }: CartTotalProps) => {
   };
 
   return (
-    <div className="bg-#FFF3E3 px-20 pt-4 pb-20 flex flex-col gap-5 ml-20">
-      <h1 className="font-semibold text-[32px] text-center mb-14">
+    <div className="bg-#FFF3E3 px-4 md:px-20 pt-4 pb-12 md:pb-20 flex flex-col gap-4 md:gap-5 ml-4 md:ml-20">
+      <h1 className="font-semibold text-2xl md:text-[32px] text-center mb-8 md:mb-14">
         Card Totals
       </h1>
-      <div className="flex justify-between mb-7">
+      <div className="flex justify-between text-sm md:text-base mb-4 md:mb-7">
         <p className="font-medium">Subtotal</p>
-        <p className="text-#9F9F9F ml-">Rp. {formattedSubtotal}</p>
+        <p className="text-#9F9F9F">Rp. {formattedSubtotal}</p>
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between text-sm md:text-base">
         <p className="font-medium">Total</p>
-        <p className="text-#B88E2F font-medium text-xl">
+        <p className="text-#B88E2F font-medium text-lg md:text-xl">
           Rp. {formattedSubtotal}
         </p>
       </div>
       <button
         onClick={handleCheckout}
-        className="px-16 py-4 border-2 border-black rounded-2xl mt-11 text-xl text-nowrap"
+        className="px-4 md:px-16 py-2 md:py-4 border-2 border-black rounded-lg md:rounded-2xl mt-6 md:mt-11 text-sm md:text-xl text-nowrap"
       >
         Check Out
       </button>
