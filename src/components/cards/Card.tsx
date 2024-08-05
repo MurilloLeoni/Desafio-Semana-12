@@ -26,11 +26,17 @@ const Card = ({
     throw new Error("AppContext must be used within a Provider");
   }
 
-  const { cartItems, setCartItems } = context;
+  const { cartItems, setCartItems, updateQuantity } = context;
 
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    setCartItems([...cartItems, { id, title, salePrice, images, quantity: 1 }]);
+    const existingItem = cartItems.find(item => item.id === id);
+
+    if (existingItem) {
+      updateQuantity(id, existingItem.quantity + 1);
+    } else {
+      setCartItems([...cartItems, { id, title, salePrice, images, quantity: 1 }]);
+    }
   };
 
   const handleCardClick = () => {

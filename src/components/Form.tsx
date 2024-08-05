@@ -27,6 +27,7 @@ const Form = () => {
   };
 
   const onSubmit = (data: FormSchema) => {
+    alert("Compra Realizada com sucesso!");
     console.log(data);
   };
 
